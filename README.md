@@ -2,7 +2,9 @@
 
 Video promozionale in motion graphic (1:49, 1920×1080) che spiega agli hotel come funzionano i QR di Hotel QR Concierge e perché conviene usarli.
 
-▶️ [hotel-qr-concierge.mp4](hotel-qr-concierge.mp4)
+▶️ **Guarda il video:** https://juancarloscarassai1-blip.github.io/hotel-video-presentation/
+
+La landing page è `index.html` (pubblicata con GitHub Pages dal branch `main`). Per mostrare i pulsanti WhatsApp ed email in fondo alla pagina, compila `CONTATTI` nello script di `index.html`.
 
 Contenuti: il cartoncino in camera senza app, i due QR (Wi-Fi anche senza internet e guida in italiano e inglese), le richieste alla reception su WhatsApp, le recensioni (4–5★ su Google, 1–3★ alla reception), il funzionamento offline senza server né abbonamenti, i tre passi per prepararlo.
 

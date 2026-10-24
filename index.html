@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel QR Concierge – Video</title>
+<meta name="description" content="In 2 minuti: come un QR in camera risponde agli ospiti, porta le richieste alla reception su WhatsApp e aumenta le recensioni positive.">
+<meta name="theme-color" content="#0C0E13">
+<meta property="og:title" content="Hotel QR Concierge – La reception in un QR">
+<meta property="og:description" content="Guarda in 2 minuti come funziona la guida digitale per hotel e B&B.">
+<meta property="og:image" content="poster.jpg">
+<meta property="og:type" content="video.other">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0C0E13;
+    --bg-hi: #1E2533;
+    --card: #12151C;
+    --card-hi: #1B2029;
+    --ink: #F3EEE4;
+    --muted: #B9B2A2;
+    --gold: #D8B677;
+    --line: rgba(216, 182, 119, 0.28);
+    --gold-grad: linear-gradient(180deg, #F1DCAA 0%, #D2AE6C 55%, #B08A4A 100%);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(900px 600px at 50% -10%, rgba(216, 182, 119, 0.16), transparent 70%),
+      radial-gradient(1000px 800px at 100% 100%, var(--bg-hi), transparent 70%),
+      var(--bg);
+    color: var(--ink);
+    font-family: Manrope, system-ui, sans-serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  .serif { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; letter-spacing: -0.01em; }
+  .gold { background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  header { padding: 22px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-size: 24px; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 34px; height: 34px; border-radius: 9px; background: var(--gold-grad); display: grid; place-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px 26px; border-radius: 999px; border: 0;
+    background: var(--gold-grad); color: #14110A;
+    font: 700 16px/1 Manrope, sans-serif; text-decoration: none; cursor: pointer;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 18px 40px rgba(216, 182, 119, 0.25); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); box-shadow: none; }
+  header .btn { padding: 11px 20px; font-size: 14px; }
+
+  .hero { text-align: center; padding: 40px 0 34px; }
+  .eyebrow { display: inline-block; font-weight: 700; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  h1 { font-size: clamp(42px, 7vw, 80px); line-height: 1.02; margin: 0 0 18px; }
+  .lead { max-width: 640px; margin: 0 auto; font-size: clamp(17px, 2.2vw, 20px); color: var(--muted); }
+
+  .player {
+    position: relative; margin: 34px auto 0; border-radius: 22px; overflow: hidden;
+    background: #000; aspect-ratio: 16 / 9;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--line);
+  }
+  .player video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .play {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    background: radial-gradient(circle at center, rgba(12, 14, 19, 0.15), rgba(12, 14, 19, 0.55));
+    border: 0; cursor: pointer; padding: 0;
+  }
+  .play span {
+    width: clamp(70px, 11vw, 104px); aspect-ratio: 1; border-radius: 50%;
+    background: var(--gold-grad); display: grid; place-items: center;
+    box-shadow: 0 0 0 10px rgba(216, 182, 119, 0.18), 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: transform .2s ease;
+  }
+  .play:hover span { transform: scale(1.06); }
+  .play svg { width: 38%; margin-left: 8%; }
+  .player.playing .play { display: none; }
+  .meta { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 22px; margin-top: 16px; color: var(--muted); font-size: 14px; font-weight: 600; }
+  .meta b { color: var(--ink); }
+
+  section { padding: 64px 0 0; }
+  h2 { font-size: clamp(32px, 4.6vw, 48px); line-height: 1.08; text-align: center; margin: 0 0 30px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 24px 22px;
+  }
+  .card .ico { font-size: 30px; line-height: 1; margin-bottom: 14px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .chapters { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; }
+  .chapters button {
+    width: 100%; text-align: left; display: flex; gap: 14px; align-items: baseline;
+    background: var(--card-hi); border: 1px solid transparent; border-radius: 14px; padding: 14px 16px;
+    color: var(--ink); font: 600 15px/1.3 Manrope, sans-serif; cursor: pointer;
+  }
+  .chapters button:hover { border-color: var(--line); }
+  .chapters time { color: var(--gold); font-variant-numeric: tabular-nums; font-weight: 800; min-width: 38px; }
+
+  .cta {
+    margin: 72px 0 0; padding: 44px 24px; text-align: center; border-radius: 28px;
+    background: radial-gradient(600px 300px at 50% 0%, rgba(216, 182, 119, 0.18), transparent 70%), var(--card);
+    border: 1px solid var(--line);
+  }
+  .cta p { color: var(--muted); max-width: 520px; margin: 0 auto 26px; font-size: 17px; }
+  .cta .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  footer { padding: 40px 0 34px; text-align: center; color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 560px) {
+    header .btn { display: none; }
+    .hero { padding-top: 22px; }
+    .player { border-radius: 14px; margin-left: -4px; margin-right: -4px; }
+    section { padding-top: 52px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand serif" href="#">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#14110A"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/></svg>
+      </span>
+      Hotel QR Concierge
+    </a>
+    <a class="btn" href="#contatti">Richiedi i tuoi QR</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <span class="eyebrow">Guida digitale per hotel e B&amp;B</span>
+    <h1 class="serif">La reception, <span class="gold">in un QR.</span></h1>
+    <p class="lead">In due minuti: come un cartoncino in camera risponde alle domande degli ospiti, porta le richieste alla reception su WhatsApp e ti aiuta ad avere più recensioni positive.</p>
+
+    <div class="player" id="player">
+      <video id="video" src="hotel-qr-concierge.mp4" poster="poster.jpg" preload="metadata" playsinline></video>
+      <button class="play" id="play" aria-label="Guarda il video">
+        <span><svg viewBox="0 0 24 24" fill="#14110A" aria-hidden="true"><path d="M6 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L7.5 3.64A1 1 0 0 0 6 4.5z"/></svg></span>
+      </button>
+    </div>
+    <div class="meta"><span><b>1:49</b> minuti</span><span>Con audio</span><span>Nessuna app per gli ospiti</span></div>
+  </div>
+
+  <section>
+    <h2 class="serif">Vai al punto che <span class="gold">ti interessa</span></h2>
+    <ul class="chapters">
+      <li><button data-t="0"><time>0:00</time>Le domande di sempre</button></li>
+      <li><button data-t="8"><time>0:08</time>Un cartoncino, niente app</button></li>
+      <li><button data-t="20"><time>0:20</time>Wi-Fi e guida dell’hotel</button></li>
+      <li><button data-t="42"><time>0:42</time>Richieste su WhatsApp</button></li>
+      <li><button data-t="54"><time>0:54</time>Più recensioni positive</button></li>
+      <li><button data-t="71"><time>1:11</time>Offline, zero abbonamenti</button></li>
+      <li><button data-t="84"><time>1:24</time>Pronto in tre passi</button></li>
+      <li><button data-t="101"><time>1:41</time>I vantaggi</button></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="serif">Perché <span class="gold">conviene</span></h2>
+    <div class="grid">
+      <div class="card"><div class="ico">📶</div><h3>Wi-Fi in un attimo</h3><p>L’ospite inquadra il QR e si collega alla rete, anche senza internet.</p></div>
+      <div class="card"><div class="ico">💬</div><h3>Richieste già scritte</h3><p>Asciugamani, late check-out, taxi: arrivano su WhatsApp con il numero di camera.</p></div>
+      <div class="card"><div class="ico">⭐</div><h3>Recensioni migliori</h3><p>Chi è soddisfatto va su Google; chi ha un problema lo segnala prima a te.</p></div>
+      <div class="card"><div class="ico">✈️</div><h3>Zero costi fissi</h3><p>Niente server, database o abbonamenti. La guida funziona anche offline.</p></div>
+    </div>
+  </section>
+
+  <div class="cta" id="contatti">
+    <h2 class="serif">Pensiamo a tutto <span class="gold">noi.</span></h2>
+    <p>Ci dai i dati della struttura, noi configuriamo la guida e ti consegniamo i cartoncini pronti da stampare, uno per camera.</p>
+    <div class="actions" id="actions"></div>
+  </div>
+</main>
+
+<footer>Hotel QR Concierge · Guida digitale per hotel e B&amp;B</footer>
+
+<script>
+  // Contatti mostrati in fondo: compila e i pulsanti compaiono da soli.
+  const CONTATTI = {
+    whatsapp: "", // es. "393331234567" (prefisso senza +)
+    email: "",    // es. "info@tuodominio.it"
+  };
+
+  const video = document.getElementById("video");
+  const player = document.getElementById("player");
+  const play = (t) => {
+    if (typeof t === "number") video.currentTime = t;
+    video.play();
+  };
+  document.getElementById("play").addEventListener("click", () => play());
+  video.addEventListener("play", () => {
+    player.classList.add("playing");
+    video.controls = true;
+  });
+  document.querySelectorAll(".chapters button").forEach((b) =>
+    b.addEventListener("click", () => {
+      player.scrollIntoView({ behavior: "smooth", block: "center" });
+      play(Number(b.dataset.t));
+    })
+  );
+
+  const actions = document.getElementById("actions");
+  const msg = encodeURIComponent("Ciao! Ho visto il video di Hotel QR Concierge e vorrei i QR per il mio hotel.");
+  if (CONTATTI.whatsapp) actions.insertAdjacentHTML("beforeend", `<a class="btn" href="https://wa.me/${CONTATTI.whatsapp}?text=${msg}" target="_blank" rel="noopener">Scrivici su WhatsApp</a>`);
+  if (CONTATTI.email) actions.insertAdjacentHTML("beforeend", `<a class="btn ${CONTATTI.whatsapp ? "ghost" : ""}" href="mailto:${CONTATTI.email}?subject=${encodeURIComponent("Hotel QR Concierge")}">Scrivici una email</a>`);
+  if (!actions.children.length) actions.insertAdjacentHTML("beforeend", `<button class="btn" onclick="play(0)">Riguarda il video</button>`);
+</script>
+</body>
+</html>
